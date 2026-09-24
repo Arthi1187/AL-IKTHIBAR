@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Al Ikhtibar Auto Repair</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        /* ================= GENERAL ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: #111;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .navbar-brand span {
+            color: #d71920;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-size: 14px;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #d71920 !important;
+        }
+
+
+        /* ================= GALLERY ================= */
+
+        .gallery-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading span {
+            color: #d71920;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+        .section-heading p {
+            color: #777;
+            max-width: 600px;
+            margin: 12px auto 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #ddd;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.8)
+            );
+            color: white;
+        }
+
+        .gallery-overlay h5 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+
+        /* ================= LOCATION ================= */
+
+        .location-section {
+            padding: 80px 0;
+            background: #f4f4f4;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            height: 280px;
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .location-content {
+            padding: 25px;
+        }
+
+        .location-content h3 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .location-content h3 i {
+            color: #d71920;
+            margin-right: 7px;
+        }
+
+        .location-content p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .direction-btn {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 10px 17px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 5px;
+            transition: 0.3s;
+        }
+
+        .direction-btn:hover {
+            background: #d71920;
+            color: white;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-box {
+            padding: 35px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        .contact-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #d71920;
+            color: white;
+
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .contact-item h5 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-item p {
+            margin: 0;
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* ================= BUTTONS ================= */
+
+        .contact-buttons {
+            margin-top: 30px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 12px 20px;
+
+            color: white;
+            border-radius: 5px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-right: 8px;
+            margin-bottom: 10px;
+
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ebe5d;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .call-btn {
+            background: #d71920;
+        }
+
+        .call-btn:hover {
+            background: #b9151b;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= OPENING HOURS ================= */
+
+        .hours-box {
+            background: #111;
+            color: white;
+            padding: 35px;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        .hours-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hours-box p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #333;
+            font-size: 13px;
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .hours-row span:last-child {
+            color: #d71920;
+            font-weight: 600;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+            padding-top: 65px;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-logo span {
+            color: #d71920;
+        }
+
+        .footer-description {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.9;
+            max-width: 420px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 11px;
+        }
+
+        .footer-links a {
+            color: #999;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 13px;
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footer-contact i {
+            color: #d71920;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+
+        /* ================= SOCIAL ICONS ================= */
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 38px;
+            height: 38px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #252525;
+            color: white;
+
+            border-radius: 50%;
+            margin-right: 6px;
+
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #d71920;
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= COPYRIGHT ================= */
+
+        .copyright {
+            border-top: 1px solid #292929;
+            margin-top: 50px;
+            padding: 20px 0;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                padding: 8px 0;
+            }
+
+            .gallery-section,
+            .location-section,
+            .contact-section {
+                padding: 55px 15px;
+            }
+
+            .section-heading h2 {
+                font-size: 28px;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .map-container {
+                height: 240px;
+            }
+
+            .contact-box,
+            .hours-box {
+                padding: 25px;
+            }
+
+            .hours-row {
+                font-size: 12px;
+            }
+
+            footer {
+                padding-top: 50px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            AL IKHTIBAR
+            <span>AUTO REPAIR</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#gallery">
+                        Gallery
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#locations">
+                        Locations
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section
+    class="gallery-section"
+    id="gallery">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>Our Workshop</span>
+
+            <h2>Gallery</h2>
+
+            <p>
+                Take a look at our workshop and automotive
+                service environment.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Gallery 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=900&q=80"
+                        alt="Auto Repair Workshop">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Auto Repair Workshop
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1632823469850-1f77c7d7a5c8?auto=format&fit=crop&w=900&q=80"
+                        alt="Car Service">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Professional Car Service
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=900&q=80"
+                        alt="Car Maintenance">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Car Maintenance
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery 4 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=80"
+                        alt="Car Repair">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Car Repair
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery 5 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80"
+                        alt="Garage">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Modern Garage
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery 6 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504222490345-c075b6008014?auto=format&fit=crop&w=900&q=80"
+                        alt="Automotive Service">
+
+                    <div class="gallery-overlay">
+
+                        <h5>
+                            Automotive Service
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOCATIONS / WORKSHOP
+===================================================== -->
+
+<section
+    class="location-section"
+    id="locations">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>Find Us</span>
+
+            <h2>Our Workshops</h2>
+
+            <p>
+                Visit our workshop locations in Mussafah,
+                Abu Dhabi.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- ================= M5 ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="location-card">
+
+
+                    <div class="map-container">
+
+                        <iframe
+                            src="https://www.google.com/maps?q=Mussafah%20M5%20Abu%20Dhabi&output=embed"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="location-content">
+
+                        <h3>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Mussafah M5
+
+                        </h3>
+
+
+                        <p>
+
+                            Mussafah Industrial Area,
+                            M5, Abu Dhabi,
+                            United Arab Emirates.
+
+                        </p>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Mussafah+M5+Abu+Dhabi"
+                            target="_blank"
+                            class="direction-btn">
+
+                            <i class="fa-solid fa-diamond-turn-right"></i>
+
+                            Get Directions
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= M6 ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="location-card">
+
+
+                    <div class="map-container">
+
+                        <iframe
+                            src="https://www.google.com/maps?q=Mussafah%20M6%20Abu%20Dhabi&output=embed"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="location-content">
+
+                        <h3>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Mussafah M6
+
+                        </h3>
+
+
+                        <p>
+
+                            Mussafah Industrial Area,
+                            M6, Abu Dhabi,
+                            United Arab Emirates.
+
+                        </p>
+
+
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=Mussafah+M6+Abu+Dhabi"
+                            target="_blank"
+                            class="direction-btn">
+
+                            <i class="fa-solid fa-diamond-turn-right"></i>
+
+                            Get Directions
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    class="contact-section"
+    id="contact">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span>Get In Touch</span>
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Contact us for professional automotive repair
+                and maintenance services.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- ================= CONTACT INFO ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="contact-box">
+
+                    <h3>
+                        Contact Information
+                    </h3>
+
+
+                    <!-- Phone -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Phone
+                            </h5>
+
+                            <p>
+                                +971 XX XXX XXXX
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Email
+                            </h5>
+
+                            <p>
+                                info@example.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Address -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Address
+                            </h5>
+
+                            <p>
+                                Mussafah Industrial Area,
+                                Abu Dhabi, UAE
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= BUTTONS ================= -->
+
+                    <div class="contact-buttons">
+
+
+                        <!-- WhatsApp -->
+
+                        <a
+                            href="https://wa.me/971XXXXXXXXX"
+                            target="_blank"
+                            class="contact-btn whatsapp-btn">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            WhatsApp Us
+
+                        </a>
+
+
+                        <!-- Call -->
+
+                        <a
+                            href="tel:+971XXXXXXXXX"
+                            class="contact-btn call-btn">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            Call Now
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= OPENING HOURS ================= -->
+
+            <div class="col-lg-6">
+
+                <div class="hours-box">
+
+                    <h3>
+                        Opening Hours
+                    </h3>
+
+
+                    <p>
+                        Our workshop is open throughout the week
+                        to provide professional automotive services.
+                    </p>
+
+
+                    <div class="hours-list">
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Monday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Tuesday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Wednesday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Thursday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Friday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Saturday
+                            </span>
+
+                            <span>
+                                08:00 AM - 08:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="hours-row">
+
+                            <span>
+                                Sunday
+                            </span>
+
+                            <span>
+                                09:00 AM - 06:00 PM
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- ================= COMPANY ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="footer-logo">
+
+                    AL IKHTIBAR
+                    <span>AUTO REPAIR</span>
+
+                </div>
+
+
+                <p class="footer-description">
+
+                    Professional automotive repair and maintenance
+                    services. We are committed to providing reliable
+                    and quality solutions for your vehicle.
+
+                </p>
+
+
+                <!-- Social Media -->
+
+                <div class="social-icons">
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-tiktok"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= QUICK LINKS ================= -->
+
+            <div class="col-lg-3">
+
+                <h4 class="footer-title">
+                    Quick Links
+                </h4>
+
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="#gallery">
+                            Gallery
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#locations">
+                            Locations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- ================= FOOTER CONTACT ================= -->
+
+            <div class="col-lg-4">
+
+                <h4 class="footer-title">
+                    Contact Information
+                </h4>
+
+
+                <ul class="footer-contact">
+
+
+                    <li>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>
+                            +971 XX XXX XXXX
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <span>
+                            info@example.com
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <span>
+                            Mussafah Industrial Area,
+                            Abu Dhabi, UAE
+                        </span>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= COPYRIGHT ================= -->
+
+        <div class="copyright">
+
+            © 2026 Al Ikhtibar Auto Repair.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
